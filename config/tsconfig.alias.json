@@ -1,0 +1,1 @@
+{"compilerOptions":{"paths":{"~views/*":["src/views/*"],"~utils/*":["src/utils/*"],"~modules/*":["src/modules/*"],"~src/*":["src/*"]}}}
