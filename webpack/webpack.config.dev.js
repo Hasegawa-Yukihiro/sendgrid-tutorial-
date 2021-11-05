@@ -13,6 +13,7 @@ const config = merge(baseConfig, {
     static: "dist",
     open: true,
     port: process.env.PORT || 5000,
+    disableHostCheck: true,
     /** 404のfallback先を /index.html にする */
     historyApiFallback: true
   }
