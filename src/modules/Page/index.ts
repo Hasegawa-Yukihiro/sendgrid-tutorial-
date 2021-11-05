@@ -6,10 +6,19 @@ class Page {
     categories: []
   };
 
+  private readonly _contact: Property = {
+    pathname: "/",
+    categories: []
+  };
+
   constructor() {}
 
   get home() {
     return this._home;
+  }
+
+  get contact() {
+    return this._contact;
   }
 }
 
