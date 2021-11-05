@@ -1,7 +1,7 @@
 const baseConfig = require("./webpack.config.base");
 const { merge } = require("webpack-merge");
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 
 /**
  * @description 環境変数の設定
