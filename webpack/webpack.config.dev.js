@@ -12,7 +12,7 @@ const config = merge(baseConfig, {
   devServer: {
     static: "dist",
     open: true,
-    port: 3000,
+    port: 11111,
     /** 404のfallback先を /index.html にする */
     historyApiFallback: true
   }
