@@ -14,7 +14,8 @@ module.exports = merge(baseConfig, {
     static: "dist",
     open: true,
     port: PORT,
-    disableHostCheck: true,
+    host: "0.0.0.0",
+    useLocalIp: true,
     /** 404のfallback先を /index.html にする */
     historyApiFallback: true
   }
