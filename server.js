@@ -6,7 +6,7 @@ app.use(express.static("dist"));
 //ここでbuildフォルダをパブリックフォルダに指定する
 app.get("*", (req, res) => {
   //buildフォルダ内のindex.htmlをリクエストに対して返信
-  res.sendFile(path.join(__dirname, "dist", "index.html"));
+  res.sendFile(path.join("dist", "index.html"));
 });
 const port = process.env.PORT || 5000;
 
