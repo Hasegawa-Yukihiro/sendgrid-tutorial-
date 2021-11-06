@@ -49,7 +49,7 @@ class Alias {
   }
 
   /** tsconfig.alias.json ファイルの更新 */
-  updateTsconfigAliasJson(pathname = "./config/tsconfig.alias.json") {
+  updateTsconfigAliasJson(pathname = "./client/config/tsconfig.alias.json") {
     const json = this.toTsconfigJson();
     fs.writeFile(pathname, JSON.stringify(json), error => {
       if (!error) {

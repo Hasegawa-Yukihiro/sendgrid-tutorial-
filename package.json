@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:dev": "webpack serve --config ./webpack/webpack.config.dev",
-    "build": "webpack --config ./webpack/webpack.config.prod.js",
+    "start:dev": "webpack serve --config ./client/webpack/webpack.config.dev",
+    "build": "webpack --config ./client/webpack/webpack.config.prod.js",
     "check:types": "tsc --noemit",
     "start": "node server.js"
   },

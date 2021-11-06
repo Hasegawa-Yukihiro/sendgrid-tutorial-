@@ -10,7 +10,7 @@ module.exports = {
   entry: path.resolve(__dirname, "../src/index.tsx"),
   /** output point */
   output: {
-    path: path.resolve(__dirname, "../dist"),
+    path: path.resolve(__dirname, "../../dist"),
     filename: "bundle.js",
     publicPath: "/"
   },
@@ -42,7 +42,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./public/index.html",
+      template: "./client/public/index.html",
       filename: "index.html"
     })
   ]
