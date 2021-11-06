@@ -7,7 +7,7 @@ class Page {
   };
 
   private readonly _contact: Property = {
-    pathname: "/",
+    pathname: "/contact",
     categories: []
   };
 
