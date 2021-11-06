@@ -8,9 +8,7 @@ const webpack = require("webpack");
  * @param NODE_ENV 環境名
  */
 const env = {
-  NODE_ENV: JSON.stringify("production"),
-  AUTH_URL: JSON.stringify(process.env.AUTH_URL),
-  API_URL: JSON.stringify(process.env.API_URL)
+  NODE_ENV: JSON.stringify("production")
 };
 
 const config = merge(baseConfig, {
