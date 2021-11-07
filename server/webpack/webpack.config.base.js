@@ -1,17 +1,19 @@
+const webpack = require("webpack");
 const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const nodeExternals = require("webpack-node-externals");
 
-//  aliasの読み込み
-const { Alias } = require("../config/scripts/alias.js");
-const alias = new Alias();
+const DEVELOPMENT = process.env.DEVELOPMENT || "LOCAL";
+const PORT = process.env.PORT || "8080";
 
 module.exports = {
+  target: "node",
+  externals: [nodeExternals()], // warning解消??
   /** entry point */
-  entry: path.resolve(__dirname, "../src/index.tsx"),
+  entry: path.resolve(__dirname, "../src/index.ts"),
   /** output point */
   output: {
-    path: path.resolve(__dirname, "../../dist"),
-    filename: "bundle.js",
+    path: path.resolve(__dirname, "../dist"),
+    filename: "main.js",
     publicPath: "/"
   },
   /** https://qiita.com/YoshinoriKanno/items/322ae6e53daa35059c15 */
@@ -19,7 +21,7 @@ module.exports = {
   /** jsファイルへの変換処理  */
   module: {
     rules: [
-      /** ts , tsx ファイルは ts-loader を使ってJSに変換 */
+      /** ts  ファイルは ts-loader を使ってJSに変換 */
       {
         test: /\.(ts|tsx)$/,
         use: [
@@ -34,19 +36,19 @@ module.exports = {
       }
     ]
   },
-
   /**
    * webpack には import する際に、指定されたモジュールを検索して該当するファイルを探す仕組み（モジュール解決  ）がある
    * resolve オプションはモジュール解決（モジュールの import を解決する仕組み）の設定を変更します。
    */
   resolve: {
-    extensions: [".ts", ".tsx", ".js", ".jsx"],
-    alias: alias.toWebpack()
+    extensions: [".ts", ".js"]
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: "./client/public/index.html",
-      filename: "index.html"
+    new webpack.DefinePlugin({
+      "process.env": {
+        DEVELOPMENT: JSON.stringify(DEVELOPMENT),
+        PORT: JSON.stringify(PORT)
+      }
     })
   ]
 };
