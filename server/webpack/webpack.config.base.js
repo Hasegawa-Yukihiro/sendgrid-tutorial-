@@ -12,7 +12,7 @@ module.exports = {
   entry: path.resolve(__dirname, "../src/index.ts"),
   /** output point */
   output: {
-    path: path.resolve(__dirname, "../dist"),
+    path: path.resolve(__dirname, "./../dist"),
     filename: "main.js",
     publicPath: "/"
   },
@@ -23,7 +23,7 @@ module.exports = {
     rules: [
       /** ts  ファイルは ts-loader を使ってJSに変換 */
       {
-        test: /\.(ts|tsx)$/,
+        test: /\.ts$/,
         use: [
           {
             loader: "ts-loader",

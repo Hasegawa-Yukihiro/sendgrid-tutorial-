@@ -7,10 +7,13 @@
     "client:start": "webpack serve --config ./client/webpack/webpack.config.dev",
     "client:build": "webpack --config ./client/webpack/webpack.config.prod.js",
     "check:types": "tsc --noemit",
-    "server:start": "run-p client:build server:build-dev server-nodemon",
+    "server:start": "run-p server:build-dev server-nodemon",
     "server:build-dev": "webpack --config ./server/webpack/webpack.config.dev.js",
-    "start": "run-p client:build server:start",
-    "server-nodemon": "nodemon ./server/dist/main.js"
+    "server:build": "webpack --config ./server/webpack/webpack.config.prod.js",
+    "server-nodemon": "nodemon ./server/dist/main.js",
+    "heroku:build": "run-p client:build server:build",
+    "heroku:main": "node server/dist/main.js",
+    "heroku:start": "run-p heroku:build heroku:main"
   },
   "keywords": [],
   "author": "",
