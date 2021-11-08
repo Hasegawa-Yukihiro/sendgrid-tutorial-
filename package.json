@@ -12,7 +12,7 @@
     "server:build": "webpack --config ./server/webpack/webpack.config.prod.js",
     "server-nodemon": "nodemon ./server/dist/main.js",
     "heroku:build": "run-p client:build server:build",
-    "heroku:main": "node server/dist/main.js",
+    "heroku:main": "node ./server/dist/main.js",
     "heroku:start": "run-p heroku:build heroku:main"
   },
   "keywords": [],

@@ -5,7 +5,6 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { Alias } = require("../config/scripts/alias.js");
 const alias = new Alias();
 
-console.log(__dirname + "../../dist");
 module.exports = {
   /** entry point */
   entry: path.resolve(__dirname, "../src/index.tsx"),
