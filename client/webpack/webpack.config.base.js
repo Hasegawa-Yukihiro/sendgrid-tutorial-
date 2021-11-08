@@ -5,12 +5,13 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { Alias } = require("../config/scripts/alias.js");
 const alias = new Alias();
 
+console.log(__dirname + "../../dist");
 module.exports = {
   /** entry point */
   entry: path.resolve(__dirname, "../src/index.tsx"),
   /** output point */
   output: {
-    path: path.resolve(__dirname, "../../dist"),
+    path: path.resolve(__dirname, "../dist"),
     filename: "bundle.js",
     publicPath: "/"
   },
