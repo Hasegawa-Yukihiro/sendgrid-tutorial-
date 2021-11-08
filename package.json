@@ -13,7 +13,7 @@
     "server-nodemon": "nodemon ./server/dist/main.js",
     "heroku:build": "run-p client:build server:build",
     "heroku:main": "node ./server/dist/main.js",
-    "heroku:start": "node ./server/dist/main.js"
+    "heroku:start": "run-s heroku:build heroku:main"
   },
   "keywords": [],
   "author": "",
