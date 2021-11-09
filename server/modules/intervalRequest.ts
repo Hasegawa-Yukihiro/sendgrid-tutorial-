@@ -9,10 +9,13 @@ export const intervalRequest = () => {
     return axios.get("https://heroku-tutorial-2021.herokuapp.com/");
   };
 
+  // 毎朝7時からインターバルスタート
   setTimeout(() => {
-    interval = setInterval(request, 60000 * 25);
+    // herokuの仕様で30分リクエストがないとスリープしてしまうため30分ごとにリクエスト送信
+    interval = setInterval(request, 60000 * 30);
   }, new Date().setHours(7, 0, 0, 0) - new Date().setHours(currentHour, currentMinute));
 
+  // 毎夜23:59でインターバル終了
   setTimeout(() => {
     if (interval) {
       clearInterval(interval);
