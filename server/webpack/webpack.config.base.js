@@ -1,6 +1,7 @@
 const webpack = require("webpack");
 const path = require("path");
 const nodeExternals = require("webpack-node-externals");
+const Dotenv = require("dotenv-webpack");
 
 const DEVELOPMENT = process.env.DEVELOPMENT || "LOCAL";
 const PORT = process.env.PORT || "8080";
@@ -44,6 +45,9 @@ module.exports = {
     extensions: [".ts", ".js"]
   },
   plugins: [
+    new Dotenv({
+      path: path.resolve(__dirname, "../sendgrid.env")
+    }),
     new webpack.DefinePlugin({
       "process.env": {
         DEVELOPMENT: JSON.stringify(DEVELOPMENT),
