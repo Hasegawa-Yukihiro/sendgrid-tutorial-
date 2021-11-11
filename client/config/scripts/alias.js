@@ -7,7 +7,7 @@ const fs = require("fs");
 class Alias {
   constructor() {
     this.aliasParams = [
-      { label: "views", alias: "src/views" },
+      { label: "Views", alias: "src/Views" },
       { label: "utils", alias: "src/utils" },
       { label: "modules", alias: "src/modules" },
       { label: "src", alias: "src" }

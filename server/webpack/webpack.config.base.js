@@ -46,7 +46,7 @@ module.exports = {
   },
   plugins: [
     new Dotenv({
-      path: path.resolve(__dirname, "../sendgrid.env")
+      path: path.resolve(__dirname, "../config/sendgrid.env")
     }),
     new webpack.DefinePlugin({
       "process.env": {

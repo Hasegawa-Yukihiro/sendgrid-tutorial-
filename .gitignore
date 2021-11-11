@@ -3,4 +3,4 @@ dist/
 .DS_Store
 yarn-error.log
 package-lock.json
-server/sendgrid.env
+server/config/sendgrid.env
