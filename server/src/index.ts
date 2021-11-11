@@ -1,10 +1,8 @@
 import express from "express";
 import rootDir from "app-root-path";
-import sgMail from "@sendgrid/mail";
+// import sgMail from "@sendgrid/mail";
 
-sgMail.setApiKey(process.env.SENDGRID_API_KEY || "");
-console.log("env", process.env.SENDGRID_API_KEY);
-console.log("sgMail", sgMail);
+// sgMail.setApiKey(process.env.SENDGRID_API_KEY || "");
 
 // const msg = {
 //   to: "y.h.baskeeee@icloud.com",
