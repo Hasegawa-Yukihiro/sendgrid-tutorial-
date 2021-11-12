@@ -4,7 +4,6 @@ const nodeExternals = require("webpack-node-externals");
 const Dotenv = require("dotenv-webpack");
 
 const DEVELOPMENT = process.env.DEVELOPMENT || "LOCAL";
-const PORT = process.env.PORT || "8080";
 
 module.exports = {
   target: "node",
@@ -50,8 +49,7 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       "process.env": {
-        DEVELOPMENT: JSON.stringify(DEVELOPMENT),
-        PORT: JSON.stringify(PORT)
+        DEVELOPMENT: JSON.stringify(DEVELOPMENT)
       }
     })
   ]
