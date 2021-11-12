@@ -1,4 +1,3 @@
-import { StringLiteralLike } from "typescript";
 import { ContactEmail } from "./Value/ContactEmail";
 import { ContactMessage } from "./Value/ContactMessage";
 import { ContactName } from "./Value/ContactName";
