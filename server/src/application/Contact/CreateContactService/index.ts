@@ -1,9 +1,23 @@
+import { Contact } from "src/domain/Models/Contact";
+import { ContactRepositoryProps } from "src/repository/Contact/type";
 import { CreateContactCommand } from "./CreateContactCommand";
+import { CreateContactServiceProps } from "./type";
 
-interface CreateContactServiceImpl {
-  handle: (command: CreateContactCommand) => Promise<void>;
-}
+export class CreateContactService implements CreateContactServiceProps.Impl {
+  private readonly contactRepository: ContactRepositoryProps.Impl;
 
-export class CreateContactService implements CreateContactServiceImpl {
-  async handle(command: CreateContactCommand) {}
+  constructor(contactRepository: ContactRepositoryProps.Impl) {
+    this.contactRepository = contactRepository;
+  }
+
+  async handle(command: CreateContactCommand) {
+    const contract = new Contact({
+      name: command.name,
+      email: command.email,
+      message: command.message,
+      createdAt: new Date()
+    });
+
+    await this.contactRepository.create(contract);
+  }
 }

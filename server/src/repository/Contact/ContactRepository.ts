@@ -1,11 +1,6 @@
 import sgMail from "@sendgrid/mail";
 import { Contact } from "src/domain/Models/Contact";
-
-namespace ContactRepositoryProps {
-  export interface Impl {
-    create: (contact: Contact) => Promise<boolean>;
-  }
-}
+import { ContactRepositoryProps } from "./type";
 
 export class ContactRepository implements ContactRepositoryProps.Impl {
   async create(contact: Contact): Promise<boolean> {
