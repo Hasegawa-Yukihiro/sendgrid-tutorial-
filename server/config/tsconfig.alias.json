@@ -1,0 +1,1 @@
+{"compilerOptions":{"paths":{"~application/*":["src/application/*"],"~domain/*":["src/domain/*"],"~factory/*":["src/factory/*"],"~repository/*":["src/repository/*"],"~modules/*":["src/modules/*"]}}}

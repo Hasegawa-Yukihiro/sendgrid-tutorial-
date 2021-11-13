@@ -2,8 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 //  aliasの読み込み
-const { Alias } = require("../config/scripts/alias.js");
-const alias = new Alias();
+const { alias } = require("../config/scripts/alias.js");
 
 module.exports = {
   /** entry point */

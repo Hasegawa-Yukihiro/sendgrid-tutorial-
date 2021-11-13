@@ -11,8 +11,7 @@ class Alias {
       { label: "domain", alias: "src/domain" },
       { label: "factory", alias: "src/factory" },
       { label: "repository", alias: "src/repository" },
-      { label: "modules", alias: "src/modules" },
-      { label: "src", alias: "src" }
+      { label: "modules", alias: "src/modules" }
     ];
   }
 
@@ -51,7 +50,7 @@ class Alias {
   }
 
   /** tsconfig.alias.json ファイルの更新 */
-  updateTsconfigAliasJson(pathname = "./client/config/tsconfig.alias.json") {
+  updateTsconfigAliasJson(pathname = "./server/config/tsconfig.alias.json") {
     const json = this.toTsconfigJson();
     fs.writeFile(pathname, JSON.stringify(json), error => {
       if (!error) {
@@ -67,4 +66,4 @@ class Alias {
 const alias = new Alias();
 alias.updateTsconfigAliasJson();
 
-exports.Alias = Alias;
+exports.alias = alias;
