@@ -1,10 +1,10 @@
 import React from "react";
 import { Router as ReactRouter } from "react-router-dom";
 import { Route, Switch } from "react-router-dom";
-import { Home } from "~Views/Pages/Home";
 import { usePageRoute } from "./hooks";
 import { page } from "~modules/Page";
-import { Contact } from "~Views/Pages/Contact";
+import { Home } from "~views/Pages/Home";
+import { Contact } from "~views/Pages/Contact";
 
 const Router = () => {
   const { state } = usePageRoute();

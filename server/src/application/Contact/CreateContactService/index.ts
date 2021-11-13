@@ -11,13 +11,13 @@ export class CreateContactService implements CreateContactServiceProps.Impl {
   }
 
   async handle(command: CreateContactCommand) {
-    const contract = new Contact({
+    const contact = new Contact({
       name: command.name,
       email: command.email,
       message: command.message,
       createdAt: new Date()
     });
 
-    await this.contactRepository.create(contract);
+    await this.contactRepository.create(contact);
   }
 }

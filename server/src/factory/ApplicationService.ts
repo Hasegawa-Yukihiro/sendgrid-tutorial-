@@ -3,10 +3,10 @@ import { CreateContactServiceProps } from "src/application/Contact/CreateContact
 import repository from "./Repository";
 
 class ApplicationService {
-  readonly createContract: CreateContactServiceProps.Impl;
+  readonly createContact: CreateContactServiceProps.Impl;
 
   constructor() {
-    this.createContract = new CreateContactService(repository.contact);
+    this.createContact = new CreateContactService(repository.contact);
   }
 }
 
