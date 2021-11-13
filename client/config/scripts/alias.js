@@ -38,16 +38,6 @@ class Alias {
     return paths;
   }
 
-  /** jestのエイリアス生成 */
-  toJest() {
-    const paths = {};
-    for (const aliasParam of this.aliasParams) {
-      const alias = `<rootDir>/${aliasParam.alias}/$1`;
-      paths[`^~${aliasParam.label}(.*)$`] = alias;
-    }
-    return paths;
-  }
-
   /** tsconfig.alias.json ファイルの更新 */
   updateTsconfigAliasJson(pathname = "./client/config/tsconfig.alias.json") {
     const json = this.toTsconfigJson();
@@ -65,4 +55,4 @@ class Alias {
 const alias = new Alias();
 alias.updateTsconfigAliasJson();
 
-exports.Alias = Alias;
+exports.alias = alias;

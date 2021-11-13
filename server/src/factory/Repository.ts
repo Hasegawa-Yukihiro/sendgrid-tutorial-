@@ -1,5 +1,5 @@
-import { ContactRepository } from "src/repository/Contact/ContactRepository";
-import { ContactRepositoryProps } from "src/repository/Contact/type";
+import { ContactRepository } from "~repository/Contact/ContactRepository";
+import { ContactRepositoryProps } from "~repository/Contact/type";
 
 class RepositoryFactory {
   readonly contact: ContactRepositoryProps.Impl;

@@ -1,5 +1,5 @@
-import { Contact } from "src/domain/Models/Contact";
-import { ContactRepositoryProps } from "src/repository/Contact/type";
+import { Contact } from "~domain/Models/Contact";
+import { ContactRepositoryProps } from "~repository/Contact/type";
 import { CreateContactCommand } from "./CreateContactCommand";
 import { CreateContactServiceProps } from "./type";
 
@@ -11,13 +11,13 @@ export class CreateContactService implements CreateContactServiceProps.Impl {
   }
 
   async handle(command: CreateContactCommand) {
-    const contract = new Contact({
+    const contact = new Contact({
       name: command.name,
       email: command.email,
       message: command.message,
       createdAt: new Date()
     });
 
-    await this.contactRepository.create(contract);
+    await this.contactRepository.create(contact);
   }
 }

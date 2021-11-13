@@ -3,6 +3,9 @@ const path = require("path");
 const nodeExternals = require("webpack-node-externals");
 const Dotenv = require("dotenv-webpack");
 
+//  aliasの読み込み
+const { alias } = require("../config/scripts/alias.js");
+
 const DEVELOPMENT = process.env.DEVELOPMENT || "LOCAL";
 
 module.exports = {
@@ -41,7 +44,8 @@ module.exports = {
    * resolve オプションはモジュール解決（モジュールの import を解決する仕組み）の設定を変更します。
    */
   resolve: {
-    extensions: [".ts", ".js"]
+    extensions: [".ts", ".js"],
+    alias: alias.toWebpack()
   },
   plugins: [
     new Dotenv({

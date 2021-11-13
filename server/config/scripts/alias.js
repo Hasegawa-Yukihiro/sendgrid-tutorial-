@@ -7,6 +7,7 @@ const fs = require("fs");
 class Alias {
   constructor() {
     this.aliasParams = [
+      { label: "controller", alias: "src/controller" },
       { label: "application", alias: "src/application" },
       { label: "domain", alias: "src/domain" },
       { label: "factory", alias: "src/factory" },
@@ -40,18 +41,8 @@ class Alias {
     return paths;
   }
 
-  /** jestのエイリアス生成 */
-  toJest() {
-    const paths = {};
-    for (const aliasParam of this.aliasParams) {
-      const alias = `<rootDir>/${aliasParam.alias}/$1`;
-      paths[`^~${aliasParam.label}(.*)$`] = alias;
-    }
-    return paths;
-  }
-
   /** tsconfig.alias.json ファイルの更新 */
-  updateTsconfigAliasJson(pathname = "./client/config/tsconfig.alias.json") {
+  updateTsconfigAliasJson(pathname = "./server/config/tsconfig.alias.json") {
     const json = this.toTsconfigJson();
     fs.writeFile(pathname, JSON.stringify(json), error => {
       if (!error) {
@@ -67,4 +58,4 @@ class Alias {
 const alias = new Alias();
 alias.updateTsconfigAliasJson();
 
-exports.Alias = Alias;
+exports.alias = alias;
