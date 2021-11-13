@@ -1,5 +1,5 @@
-import { Contact } from "src/domain/Models/Contact";
-import { ContactRepositoryProps } from "src/repository/Contact/type";
+import { Contact } from "~domain/Models/Contact";
+import { ContactRepositoryProps } from "~repository/Contact/type";
 import { CreateContactCommand } from "./CreateContactCommand";
 import { CreateContactServiceProps } from "./type";
 

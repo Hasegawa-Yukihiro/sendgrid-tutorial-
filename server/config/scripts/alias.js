@@ -7,11 +7,13 @@ const fs = require("fs");
 class Alias {
   constructor() {
     this.aliasParams = [
+      { label: "controller", alias: "src/controller" },
       { label: "application", alias: "src/application" },
       { label: "domain", alias: "src/domain" },
       { label: "factory", alias: "src/factory" },
       { label: "repository", alias: "src/repository" },
-      { label: "modules", alias: "src/modules" }
+      { label: "modules", alias: "src/modules" },
+      { label: "src", alias: "src" }
     ];
   }
 
@@ -35,16 +37,6 @@ class Alias {
     for (const aliasParam of this.aliasParams) {
       const alias = path.resolve(__dirname, `../../${aliasParam.alias}`);
       paths[`~${aliasParam.label}`] = alias;
-    }
-    return paths;
-  }
-
-  /** jestのエイリアス生成 */
-  toJest() {
-    const paths = {};
-    for (const aliasParam of this.aliasParams) {
-      const alias = `<rootDir>/${aliasParam.alias}/$1`;
-      paths[`^~${aliasParam.label}(.*)$`] = alias;
     }
     return paths;
   }

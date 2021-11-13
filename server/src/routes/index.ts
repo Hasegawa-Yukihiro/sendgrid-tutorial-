@@ -13,8 +13,9 @@ export const routes = (app: Express): Express => {
   app.post(
     "/contact",
     validate({
-      body: controller.createContact.schema
-    })
+      body: controller.createContact.schema.body
+    }),
+    controller.createContact.execute
   );
 
   return app;

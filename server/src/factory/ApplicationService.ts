@@ -1,5 +1,5 @@
-import { CreateContactService } from "src/application/Contact/CreateContactService";
-import { CreateContactServiceProps } from "src/application/Contact/CreateContactService/type";
+import { CreateContactService } from "~application/Contact/CreateContactService";
+import { CreateContactServiceProps } from "~application/Contact/CreateContactService/type";
 import repository from "./Repository";
 
 class ApplicationService {

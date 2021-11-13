@@ -1,5 +1,5 @@
-import { CreateContactController } from "src/controller/CreateContact";
-import { CreateContactControllerProps } from "src/controller/CreateContact/type";
+import { CreateContactController } from "~controller/CreateContact";
+import { CreateContactControllerProps } from "~controller/CreateContact/type";
 
 class Controller {
   readonly createContact: CreateContactControllerProps.Impl;

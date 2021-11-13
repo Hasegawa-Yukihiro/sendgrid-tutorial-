@@ -1,7 +1,7 @@
 import { NextFunction } from "express";
 import { JSONSchema7 } from "json-schema";
-import { CreateContactCommand } from "src/application/Contact/CreateContactService/CreateContactCommand";
-import applicationService from "src/factory/ApplicationService";
+import { CreateContactCommand } from "~application/Contact/CreateContactService/CreateContactCommand";
+import applicationService from "~factory/ApplicationService";
 import { CreateContactControllerProps } from "./type";
 
 export class CreateContactController
@@ -10,11 +10,11 @@ export class CreateContactController
   readonly schema: { body: JSONSchema7 } = {
     body: {
       type: "object",
-      required: ["name", "message", "email"],
+      required: [],
       properties: {
         name: { type: "string" },
-        message: { type: "string" },
-        email: { type: "string" }
+        email: { type: "string" },
+        message: { type: "string" }
       },
       additionalProperties: false
     }
@@ -25,6 +25,7 @@ export class CreateContactController
     res: CreateContactControllerProps.Res,
     next: NextFunction
   ) => {
+    console.log("req", req.body);
     try {
       const command: CreateContactCommand = {
         name: req.body.name,
