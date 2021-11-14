@@ -1,8 +1,12 @@
+const webpack = require("webpack");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 //  aliasの読み込み
 const { alias } = require("../config/scripts/alias.js");
+
+const SENDGRID_TUTORIAL_URL =
+  process.env.SENDGRID_TUTORIAL_URL || "http://localhost:8080";
 
 module.exports = {
   /** entry point */
@@ -11,7 +15,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "../dist"),
     filename: "bundle.js",
-    publicPath: "/"
+    publicPath: "./"
   },
   /** https://qiita.com/YoshinoriKanno/items/322ae6e53daa35059c15 */
   devtool: "eval-source-map",
@@ -43,6 +47,11 @@ module.exports = {
     alias: alias.toWebpack()
   },
   plugins: [
+    new webpack.DefinePlugin({
+      "process.env": {
+        SENDGRID_TUTORIAL_URL: JSON.stringify(SENDGRID_TUTORIAL_URL)
+      }
+    }),
     new HtmlWebpackPlugin({
       template: "./client/public/index.html",
       filename: "index.html"

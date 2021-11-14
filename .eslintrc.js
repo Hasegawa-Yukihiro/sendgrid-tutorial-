@@ -52,6 +52,8 @@ module.exports = {
         //  setter内でのリターン
         "no-setter-return": "error",
 
+        "no-redeclare": "off",
+
         /** 厳密な比較演算子の使用を強制 */
         eqeqeq: "error",
 

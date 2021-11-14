@@ -10,6 +10,7 @@ class Alias {
       { label: "views", alias: "src/views" },
       { label: "utils", alias: "src/utils" },
       { label: "modules", alias: "src/modules" },
+      { label: "api", alias: "src/api" },
       { label: "src", alias: "src" }
     ];
   }
