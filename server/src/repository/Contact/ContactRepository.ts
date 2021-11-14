@@ -9,8 +9,11 @@ export class ContactRepository implements ContactRepositoryProps.Impl {
     /** 送信者へ送るメール */
     const senderMsg = {
       to: contact.email.value,
-      from: "y.h.baskeeee@icloud.com",
-      subject: "お問い合わせありがとうございます。",
+      from: {
+        email: "y.h.baskeeee@icloud.com",
+        name: "長谷川 有希紘"
+      },
+      subject: `${contact.name.value}様 お問い合わせありがとうございます。`,
       text: "以下の問い合わせを受け付けました。",
       html: `<p>以下の問い合わせを受け付けました。<br>${contact.message.value}</p>`
     };
@@ -27,10 +30,13 @@ export class ContactRepository implements ContactRepositoryProps.Impl {
     /** 受信者（管理者）へ送るメール */
     const receiverMsg = {
       to: "y.h.baskeeee@icloud.com",
-      from: "y.h.baskeeee@icloud.com",
+      from: {
+        email: "y.h.baskeeee@icloud.com",
+        name: "長谷川 有希紘"
+      },
       subject: "以下の問い合わせがありました。",
       text: "以下の問い合わせがありました。",
-      html: `<p>${contact.message.value}</p>`
+      html: `<p>${contact.name.value}様<br>${contact.message.value}</p>`
     };
 
     sgMail
