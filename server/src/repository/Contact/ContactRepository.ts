@@ -10,9 +10,9 @@ export class ContactRepository implements ContactRepositoryProps.Impl {
     const senderMsg = {
       to: contact.email.value,
       from: "y.h.baskeeee@icloud.com",
-      subject: "Sending with SendGrid is Fun",
-      text: "and easy to do anywhere, even with Node.js",
-      html: "<strong>and easy to do anywhere, even with Node.js</strong>"
+      subject: "お問い合わせありがとうございます。",
+      text: "以下の問い合わせを受け付けました。",
+      html: `<p>以下の問い合わせを受け付けました。<br>${contact.message.value}</p>`
     };
 
     sgMail
