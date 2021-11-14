@@ -28,7 +28,6 @@ export default (): Express => {
 
   //  https redirect
   app.get("*", function (req, res, next) {
-    console.log("req", req);
     const protocol = req.headers["x-forwarded-proto"];
     const hostname = req.hostname;
     if (protocol !== "https" && hostname !== "localhost")

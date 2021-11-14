@@ -6,7 +6,7 @@ import {
   CreateContactResponse
 } from "./type";
 
-export class CreateContact
+export class CreateContactAPI
   extends APIBase
   implements CreateContactAPIImplements
 {

@@ -25,7 +25,6 @@ export class CreateContactController
     res: CreateContactControllerProps.Res,
     next: NextFunction
   ) => {
-    console.log("req", req.body);
     try {
       const command: CreateContactCommand = {
         name: req.body.name,

@@ -1,4 +1,7 @@
 import { useCallback, useState } from "react";
+import { CreateContactAPI } from "~api/Contact/CreateContact/";
+
+const createContactApi = new CreateContactAPI();
 
 export const useContact = () => {
   const [name, setName] = useState("");
@@ -20,12 +23,24 @@ export const useContact = () => {
     setMessage(message);
   }, []);
 
+  /** 送信ボタン押下ハンドラ */
+  const handleSubmitClick = useCallback(async () => {
+    await createContactApi.handle({
+      body: {
+        name,
+        email,
+        message
+      }
+    });
+  }, [email, message, name]);
+
   return {
     name,
     email,
     message,
     handleNameChange,
     handleEmailChange,
-    handleMessageChange
+    handleMessageChange,
+    handleSubmitClick
   };
 };

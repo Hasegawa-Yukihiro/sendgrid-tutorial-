@@ -1,6 +1,17 @@
 import React from "react";
+import { useContact } from "./hooks";
 
 export const Contact: React.FC = () => {
+  const {
+    name,
+    email,
+    message,
+    handleNameChange,
+    handleEmailChange,
+    handleMessageChange,
+    handleSubmitClick
+  } = useContact();
+
   return (
     <div
       style={{
@@ -19,6 +30,8 @@ export const Contact: React.FC = () => {
         }}
         type="text"
         name="name"
+        value={name}
+        onChange={e => handleNameChange(e.target.value)}
       />
       <p>メールアドレス</p>
       <input
@@ -29,6 +42,8 @@ export const Contact: React.FC = () => {
         }}
         type="email"
         name="email"
+        value={email}
+        onChange={e => handleEmailChange(e.target.value)}
       />
       <p>お問い合せ内容</p>
       <textarea
@@ -38,7 +53,18 @@ export const Contact: React.FC = () => {
           padding: 5
         }}
         name="message"
+        value={message}
+        onChange={e => handleMessageChange(e.target.value)}
       />
+      <button
+        style={{
+          marginTop: 10,
+          cursor: "pointer"
+        }}
+        onClick={handleSubmitClick}
+      >
+        送信
+      </button>
     </div>
   );
 };
