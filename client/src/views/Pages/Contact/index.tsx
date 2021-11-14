@@ -6,6 +6,7 @@ export const Contact: React.FC = () => {
     name,
     email,
     message,
+    success,
     handleNameChange,
     handleEmailChange,
     handleMessageChange,
@@ -65,6 +66,7 @@ export const Contact: React.FC = () => {
       >
         送信
       </button>
+      {success && <p>送信完了しました</p>}
     </div>
   );
 };

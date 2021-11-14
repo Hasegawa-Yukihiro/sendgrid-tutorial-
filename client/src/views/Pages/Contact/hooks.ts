@@ -7,6 +7,7 @@ export const useContact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [success, setSuccess] = useState(false);
 
   /** 名前のチェンジハンドラ */
   const handleNameChange = useCallback((name: string) => {
@@ -25,19 +26,21 @@ export const useContact = () => {
 
   /** 送信ボタン押下ハンドラ */
   const handleSubmitClick = useCallback(async () => {
-    await createContactApi.handle({
+    const success = await createContactApi.handle({
       body: {
         name,
         email,
         message
       }
     });
+    setSuccess(success.ok);
   }, [email, message, name]);
 
   return {
     name,
     email,
     message,
+    success,
     handleNameChange,
     handleEmailChange,
     handleMessageChange,
