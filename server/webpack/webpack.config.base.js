@@ -7,6 +7,7 @@ const Dotenv = require("dotenv-webpack");
 const { alias } = require("../config/scripts/alias.js");
 
 const DEVELOPMENT = process.env.DEVELOPMENT || "LOCAL";
+const EMAIL = process.env.EMAIL || "y.h.baskeeee@iclouc.com";
 
 module.exports = {
   target: "node",
@@ -53,7 +54,8 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       "process.env": {
-        DEVELOPMENT: JSON.stringify(DEVELOPMENT)
+        DEVELOPMENT: JSON.stringify(DEVELOPMENT),
+        EMAIL: JSON.stringify(EMAIL)
       }
     })
   ]
