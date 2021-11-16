@@ -2,7 +2,6 @@ import sgMail from "@sendgrid/mail";
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY || "");
 sgMail.setSubstitutionWrappers("$", "");
-const fromEmail = process.env.EMAIL || "";
 
 interface SendgridUser {
   name: string;
@@ -22,7 +21,7 @@ class SendGrid {
           }
         },
         {
-          to: fromEmail,
+          to: "y.h.baskeeee@icloud.com",
           subject: "問い合わせがありました。",
           substitutions: {
             MESSAGE: `<p>${user.name}様<br>${user.message}</p>`
